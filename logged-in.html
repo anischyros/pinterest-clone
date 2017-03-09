@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Twitter Callback</title>
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script>
+$(function()
+{
+	$.get("/access-token" + location.search).done(function(user)
+	{
+		location.href = "/";
+	});
+});
+		</script>
+</head>
+<body>
+</body>
+</html>
