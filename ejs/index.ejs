@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Instant Photo Album</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+	<script src="/logic.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+	<div id="heading" class="well well-sm">
+		<div class="row">
+			<div class="col-lg-6">
+				<span id="site-title">Instant Photo Album</span></br>
+				<span>Why take pictures when I can steal someone else's?</span>
+			</div>
+			<div class="col-lg-3">
+<% if (loggedIn)
+   { %>
+				<a id="view-my-pictures" href="/ViewMyPictures">
+					View my pictures</a></br>
+<% } %>
+			</div>
+			<div class="col-lg-3">
+<% if (!loggedIn) 
+   { %>
+				<button id="sign-in-with-twitter">
+					<img alt="Sign in with Twitter" 
+						src="https://g.twimg.com/dev/sites/default/files/images_documentation/sign-in-with-twitter-link.png" />
+				</button>
+<% }
+   else
+   { %>
+				<span>Welcome, <%= name %></span></br>
+				<a href="/Logout">Logout</a>
+<% } %>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid">
+<% for (var i = 0; i < pictures.length; i++)
+   { %> 
+		<div class="grid-item picture-panel">
+			<span class="picture-title"><%= pictures[i].title %></span><br />
+			<a href="<%= pictures[i].url %>">
+				<img src="<%= pictures[i].url %>" width="150px" 
+					onerror="onImageError(this);" /><br />
+			</a>
+			<span class="picture-owner"><%= pictures[i].owner_name %></span>
+		</div>
+
+<% } %>
+	</div>
+</div>
+</body>
+</html>

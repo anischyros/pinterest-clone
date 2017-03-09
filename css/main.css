@@ -1,0 +1,42 @@
+#site-title
+{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.picture-panel
+{
+    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    width: 180px;
+    border: cyan solid 1px;
+    border-radius: 10px;
+    background-color: white;
+	text-align: center;
+}
+
+.grid-item
+{
+    width: 180px; 
+}
+
+body
+{
+    background-color: black;
+}
+
+#heading, .grid
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.picture-title
+{
+	font-weight: bold;
+}
+
+.picture-panel img
+{
+    margin-bottom: 5px
+}
